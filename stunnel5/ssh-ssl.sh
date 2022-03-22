@@ -35,12 +35,12 @@ ver=$VERSION_ID
 
 #detail nama perusahaan
 country=ID
-state=Indonesia
-locality=Indonesia
-organization=akbarstorevpn
-organizationalunit=akbarstorevpn
-commonname=akbarstorevpn
-email=akbarssh21@gmail.com
+state=Jawa Barat
+locality=Bogor
+organization=MRG
+organizationalunit=MRG
+commonname=ARSHAKA
+email=rega.andriana@gmail.com
 
 cd
 
