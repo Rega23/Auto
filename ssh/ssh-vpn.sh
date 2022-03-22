@@ -14,16 +14,16 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/ssh"
+akbarvpn="raw.githubusercontent.com/Rega23/Auto/main/ssh"
 
 # Link Hosting Kalian Untuk Xray
-akbarvpnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/xray"
+akbarvpnn="raw.githubusercontent.com/Rega23/Auto/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-akbarvpnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/trojango"
+akbarvpnnn="raw.githubusercontent.com/Rega23/Auto/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-akbarvpnnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/stunnel5"
+akbarvpnnnn="raw.githubusercontent.com/Rega23/Auto/main/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -35,12 +35,12 @@ ver=$VERSION_ID
 
 #detail nama perusahaan
 country=ID
-state=Indonesia
-locality=Indonesia
-organization=infinity
-organizationalunit=infinity
-commonname=cdn.covid19.go.id
-email=hayuk69@gmail.com
+state=Jawa Barat
+locality=Bogor
+organization=MRG
+organizationalunit=MRG
+commonname=ARSHAKA
+email=rega.andriana@gmail.com
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://${akbarvpn}/password"
@@ -371,7 +371,7 @@ cd /usr/bin
 wget -O addhost "https://${akbarvpn}/addhost.sh"
 wget -O slhost "https://${akbarvpn}/slhost.sh"
 wget -O about "https://${akbarvpn}/about.sh"
-wget -O menu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/Rega23/Auto/main/update/menu.sh"
 wget -O addssh "https://${akbarvpn}/addssh.sh"
 wget -O trialssh "https://${akbarvpn}/trialssh.sh"
 wget -O delssh "https://${akbarvpn}/delssh.sh"
@@ -389,9 +389,7 @@ wget -O tendang "https://${akbarvpn}/tendang.sh"
 wget -O clearlog "https://${akbarvpn}/clearlog.sh"
 wget -O changeport "https://${akbarvpn}/changeport.sh"
 wget -O portovpn "https://${akbarvpn}/portovpn.sh"
-wget -O portwg "https://${akbarvpn}/portwg.sh"
 wget -O porttrojan "https://${akbarvpn}/porttrojan.sh"
-wget -O portsstp "https://${akbarvpn}/portsstp.sh"
 wget -O portsquid "https://${akbarvpn}/portsquid.sh"
 wget -O portvlm "https://${akbarvpn}/portvlm.sh"
 wget -O wbmn "https://${akbarvpn}/webmin.sh"
@@ -418,36 +416,26 @@ wget -O addtrgo "https://${akbarvpnnn}/addtrgo.sh"
 wget -O deltrgo "https://${akbarvpnnn}/deltrgo.sh"
 wget -O renewtrgo "https://${akbarvpnnn}/renewtrgo.sh"
 wget -O cektrgo "https://${akbarvpnnn}/cektrgo.sh"
-wget -O portsshnontls "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshnontls.sh"
-wget -O portsshws "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshws.sh"
-
-wget -O ipsaya "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ipsaya.sh"
-wget -O sshovpnmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/sshovpn.sh"
-wget -O l2tpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/l2tpmenu.sh"
-wget -O pptpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/pptpmenu.sh"
-wget -O sstpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/sstpmenu.sh"
-wget -O wgmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/wgmenu.sh"
-wget -O ssmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ssmenu.sh"
-wget -O ssrmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ssrmenu.sh"
-wget -O vmessmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/vmessmenu.sh"
-wget -O vlessmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/vlessmenu.sh"
-wget -O grpcmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/grpcmenu.sh"
-wget -O grpcupdate "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/grpcupdate.sh"
-wget -O trmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/trmenu.sh"
-wget -O trgomenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/trgomenu.sh"
-wget -O setmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/setmenu.sh"
-wget -O slowdnsmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/slowdnsmenu.sh"
-wget -O running "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/running.sh"
-wget -O updatemenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/updatemenu.sh"
-wget -O sl-fix "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/sslh-fix/sl-fix"
+wget -O portsshnontls "https://raw.githubusercontent.com/Rega23/Auto/main/websocket/portsshnontls.sh"
+wget -O portsshws "https://raw.githubusercontent.com/Rega23/Auto/main/websocket/portsshws.sh"
+wget -O ipsaya "https://raw.githubusercontent.com/Rega23/Auto/main/update/ipsaya.sh"
+wget -O sshovpnmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/sshovpn.sh"
+wget -O ssmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/ssmenu.sh"
+wget -O ssrmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/ssrmenu.sh"
+wget -O vmessmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/vmessmenu.sh"
+wget -O vlessmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/vlessmenu.sh"
+wget -O grpcmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/grpcmenu.sh"
+wget -O grpcupdate "https://raw.githubusercontent.com/Rega23/Auto/main/update/grpcupdate.sh"
+wget -O trmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/trmenu.sh"
+wget -O trgomenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/trgomenu.sh"
+wget -O setmenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/setmenu.sh"
+wget -O running "https://raw.githubusercontent.com/Rega23/Auto/main/update/running.sh"
+wget -O updatemenu "https://raw.githubusercontent.com/Rega23/Auto/main/update/updatemenu.sh"
+wget -O sl-fix "https://raw.githubusercontent.com/Rega23/Auto/main/sslh-fix/sl-fix"
 
 chmod +x sl-fix
 chmod +x ipsaya
 chmod +x sshovpnmenu
-chmod +x l2tpmenu
-chmod +x pptpmenu
-chmod +x sstpmenu
-chmod +x wgmenu
 chmod +x ssmenu
 chmod +x ssrmenu
 chmod +x vmessmenu
@@ -457,14 +445,10 @@ chmod +x grpcupdate
 chmod +x trmenu
 chmod +x trgomenu
 chmod +x setmenu
-chmod +x slowdnsmenu
 chmod +x running
 chmod +x updatemenu
-
-
 chmod +x portsshnontls
 chmod +x portsshws
-
 chmod +x slhost
 chmod +x addhost
 chmod +x menu
@@ -486,9 +470,7 @@ chmod +x renewssh
 chmod +x clearlog
 chmod +x changeport
 chmod +x portovpn
-chmod +x portwg
 chmod +x porttrojan
-chmod +x portsstp
 chmod +x portsquid
 chmod +x portvlm
 chmod +x wbmn
