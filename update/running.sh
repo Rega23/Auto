@@ -54,19 +54,10 @@ CITY=$( curl -s ipinfo.io/city )
 #clear
 
 # CHEK STATUS 
-l2tp_status=$(systemctl status xl2tpd | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 openvpn_service="$(systemctl show openvpn.service --no-page)"
 oovpn=$(echo "${openvpn_service}" | grep 'ActiveState=' | cut -f2 -d=)
-#status_openvp=$(/etc/init.d/openvpn status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#status_ss_tls="$(systemctl show shadowsocks-libev-server@tls.service --no-page)"
-#ss_tls=$(echo "${status_ss_tls}" | grep 'ActiveState=' | cut -f2 -d=)
 sst_status=$(systemctl status shadowsocks-libev-server@tls | grep Active | awk '{print $0}' | cut -d "(" -f2 | cut -d ")" -f1) 
 ssh_status=$(systemctl status shadowsocks-libev-server@http | grep Active | awk '{print $0}' | cut -d "(" -f2 | cut -d ")" -f1) 
-#status_ss_http="$(systemctl show shadowsocks-libev-server@http.service --no-page)"
-#ss_http=$(echo "${status_ss_http}" | grep 'ActiveState=' | cut -f2 -d=)
-#sssohtt=$(systemctl status shadowsocks-libev-server@*-http | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#status="$(systemctl show shadowsocks-libev.service --no-page)"
-#status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 vless_tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -89,11 +80,7 @@ sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "
 wstls=$(systemctl status ws-tls | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsdrop=$(systemctl status ws-nontls | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsovpn=$(systemctl status ws-ovpn | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#wsopen=$(systemctl status ws-openssh | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 osslh=$(systemctl status sslh | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-ohp=$(systemctl status dropbear-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-ohq=$(systemctl status openvpn-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-ohr=$(systemctl status ssh-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
 # COLOR VALIDATION
 RED='\033[0;31m'
@@ -211,25 +198,11 @@ else
    status_virus_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 
-# STATUS SERVICE WIREGUARD
-if [[ $swg == "active" ]]; then
-  status_wg=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-  status_wg="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
-
 # Status Service Trojan GO
 if [[ $strgo == "active" ]]; then
   status_trgo=" ${GREEN}Running ${NC}( No Error )${NC}"
 else
   status_trgo="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
-
-# STATUS SERVICE L2TP
-if [[ $l2tp_status == "running" ]]; then 
-   status_l2tp=" ${GREEN}Running${NC} ( No Error )${NC}"
-else
-   status_l2tp="${RED}  Not Running${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE DROPBEAR
@@ -244,13 +217,6 @@ if [[ $stunnel_service == "running" ]]; then
    status_stunnel=" ${GREEN}Running ${NC}( No Error )"
 else
    status_stunnel="${RED}  Not Running ${NC}  ( Error )}"
-fi
-
-# STATUS SERVICE SSTP
-if [[ $sstp_service == "running" ]]; then 
-   status_sstp=" ${GREEN}Running ${NC}( No Error )"
-else
-   status_sstp="${RED}  Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE WEBSOCKET TLS
@@ -279,27 +245,6 @@ if [[ $osslh == "running" ]]; then
    sosslh=" ${GREEN}Running ${NC}( No Error )${NC}"
 else
    sosslh="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
-
-# STATUS OHP DROPBEAR
-if [[ $ohp == "running" ]]; then 
-   sohp=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-   sohp="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
-
-# STATUS OHP OpenVPN
-if [[ $ohq == "running" ]]; then 
-   sohq=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-   sohq="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
-
-# STATUS OHP SSH
-if [[ $ohr == "running" ]]; then 
-   sohr=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-   sohr="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE WEBSOCKET OPENSSH
@@ -372,8 +317,6 @@ echo -e "❇️ Squid                   :$status_squid"
 echo -e "❇️ Fail2Ban                :$status_fail2ban"
 echo -e "❇️ Crons                   :$status_cron"
 echo -e "❇️ Vnstat                  :$status_vnstat"
-echo -e "❇️ L2TP                    :$status_l2tp"
-echo -e "❇️ SSTP                    :$status_sstp"
 echo -e "❇️ XRAYS Vmess TLS         :$status_tls_v2ray"
 echo -e "❇️ XRAYS Vmess None TLS    :$status_nontls_v2ray"
 echo -e "❇️ XRAYS Vless TLS         :$status_tls_vless"
@@ -383,13 +326,9 @@ echo -e "❇️ Shadowsocks-OBFS HTTPS  :$status_sst"
 echo -e "❇️ Shadowsocks-OBFS HTTP   :$status_ssh"
 echo -e "❇️ XRAYS Trojan            :$status_virus_trojan"
 echo -e "❇️ Trojan GO               :$status_trgo"
-echo -e "❇️ Wireguard               :$status_wg"
 echo -e "❇️ Websocket TLS           :$swstls"
 echo -e "❇️ Websocket None TLS      :$swsdrop"
 echo -e "❇️ Websocket Ovpn          :$swsovpn"
-echo -e "❇️ OHP Dropbear            :$sohp"
-echo -e "❇️ OHP OpenVPN             :$sohq"
-echo -e "❇️ OHP SSH                 :$sohr"
 echo -e "❇️ SSL / SSH Multiplexer   :$sosslh"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo ""
