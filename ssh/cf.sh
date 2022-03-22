@@ -26,7 +26,7 @@ clear
 apt install jq curl -y
 DOMAIN=arshaka.tech
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c6)
-SUB_DOMAIN=${sub}.installer.my.id
+SUB_DOMAIN=${sub}.arshaka.tech
 CF_ID=rega.andriana@gmail.com
 CF_KEY=7fa393c334da66a56b439deb29db45ca546a0
 set -euo pipefail
