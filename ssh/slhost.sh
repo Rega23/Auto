@@ -12,12 +12,12 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 cp /root/domain /etc/xray/
 
-DOMAIN=akbar-store.me
+DOMAIN=arshaka.tech
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.akbar-store.me
+SUB_DOMAIN=${sub}.arshaka.tech
 echo "IP=""$SUB_DOMAIN" >> /var/lib/crot/ipvps.conf
-CF_ID=sandigaming01@gmail.com
-CF_KEY=3bbac9ca50413bd6b05c1b7989871a077c2c3
+CF_ID=rega.andriana@gmail.com
+CF_KEY=7fa393c334da66a56b439deb29db45ca546a0
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
