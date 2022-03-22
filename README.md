@@ -51,7 +51,7 @@ Part 3: Install Semua Layanan VPN /Install All VPN Service
   <img src="https://img.shields.io/badge/Install_Semua_Layanan_VPN%20Batch-green">
   ```html
 wget https://raw.githubusercontent.com/Rega23/Auto/main/auto.sh && chmod +x auto.sh && ./auto.sh
-
+```
 
 ### 4.
 # Auto Fix Error SSLH + WS-TLS 443
