@@ -6,10 +6,11 @@ domain=$(cat /etc/xray/domain)
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
 wget https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
+acme.sh --set-default-ca --server letsencrypt
 bash acme.sh --install
 rm acme.sh
 cd .acme.sh
-bash acme.sh --register-account -m senowahyu62@gmail.com
+bash acme.sh --register-account -m rega.andriana@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 
