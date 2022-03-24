@@ -52,6 +52,7 @@ sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
 wget https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
 bash acme.sh --install
+acme.sh --set-default-ca --server letsencrypt
 rm acme.sh
 cd .acme.sh
 bash acme.sh --register-account -m senowahyu62@gmail.com
