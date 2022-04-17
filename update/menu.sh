@@ -20,7 +20,8 @@ echo -e "$y-------------------------------------------------$wh"
 echo -e "$yy 7$y. CEK SEMUA IP PORT$wh"
 echo -e "$yy 8$y. CEK SEMUA SERVICE VPN$wh"
 echo -e "$yy 9$y. Settings$wh"
-echo -e "$yy 10$y.Exit$wh"
+echo -e "$yy 10$y.Update Menu$wh"
+echo -e "$yy 11$y.Exit$wh"
 echo -e "$y-------------------------------------------------$wh"
 read -p "Select From Options [ 1 - 11 ] : " menu
 case $menu in
@@ -61,6 +62,10 @@ clear
 setmenu
 ;;
 10)
+clear
+updatemenu
+;;
+11)
 clear
 exit
 ;;
