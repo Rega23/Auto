@@ -62,21 +62,16 @@ tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut 
 nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 vless_tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 vless_nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-ssr_status=$(systemctl status ssrmu | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 trojan_server=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 dropbear_status=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 stunnel_service=$(/etc/init.d/stunnel5 status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-sstp_service=$(systemctl status accel-ppp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 squid_service=$(/etc/init.d/squid status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ssh_service=$(/etc/init.d/ssh status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 vnstat_service=$(/etc/init.d/vnstat status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 cron_service=$(/etc/init.d/cron status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 fail2ban_service=$(/etc/init.d/fail2ban status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-wg="$(systemctl show wg-quick@wg0.service --no-page)"
-swg=$(echo "${wg}" | grep 'ActiveState=' | cut -f2 -d=)
 trgo="$(systemctl show trojan-go.service --no-page)"                                      
 strgo=$(echo "${trgo}" | grep 'ActiveState=' | cut -f2 -d=)  
-sswg=$(systemctl status wg-quick@wg0 | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wstls=$(systemctl status ws-tls | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsdrop=$(systemctl status ws-nontls | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsovpn=$(systemctl status ws-ovpn | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -92,20 +87,6 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 clear
-
-# STATUS SERVICE Shadowsocks HTTPS
-if [[ $sst_status == "running" ]]; then
-  status_sst=" ${GREEN}Running ${NC}"
-else
-  status_sst="${RED}  Not Running ${NC}  "
-fi
-
-# STATUS SERVICE Shadowsocks HTTP
-if [[ $ssh_status == "running" ]]; then 
-   status_ssh=" ${GREEN}Running ${NC}"
-else
-   status_ssh="${RED}  Not Running ${NC}  "
-fi
 
 # STATUS SERVICE OPENVPN
 if [[ $oovpn == "active" ]]; then
@@ -175,20 +156,6 @@ if [[ $vless_nontls_v2ray_status == "running" ]]; then
   status_nontls_vless=" ${GREEN}Running${NC} "
 else
   status_nontls_vless="${RED}  Not Running ${NC}  ${NC}"
-fi
-
-# SHADOWSOCKSR STATUS
-if [[ $ssr_status == "running" ]] ; then
-  status_ssr=" ${GREEN}Running${NC} ${NC}"
-else
-  status_ssr="${RED}  Not Running ${NC}  ${NC}"
-fi
-
-# SODOSOK
-if [[ $status_text == "active" ]] ; then
-  status_sodosok=" ${GREEN}Running${NC} ${NC}"
-else
-  status_sodosok="${RED}  Not Running ${NC}  ${NC}"
 fi
 
 # STATUS SERVICE TROJAN
@@ -321,9 +288,6 @@ echo -e "❇️ XRAYS Vmess TLS         :$status_tls_v2ray"
 echo -e "❇️ XRAYS Vmess None TLS    :$status_nontls_v2ray"
 echo -e "❇️ XRAYS Vless TLS         :$status_tls_vless"
 echo -e "❇️ XRAYS Vless None TLS    :$status_nontls_vless"
-echo -e "❇️ Shadowsocks-R           :$status_ssr"
-echo -e "❇️ Shadowsocks-OBFS HTTPS  :$status_sst"
-echo -e "❇️ Shadowsocks-OBFS HTTP   :$status_ssh"
 echo -e "❇️ XRAYS Trojan            :$status_virus_trojan"
 echo -e "❇️ Trojan GO               :$status_trgo"
 echo -e "❇️ Websocket TLS           :$swstls"
