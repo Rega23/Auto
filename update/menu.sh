@@ -19,8 +19,8 @@ echo -e "$y                  MENU SYSTEM $wh"
 echo -e "$y-------------------------------------------------$wh"
 echo -e "$yy 7$y. CEK SEMUA IP PORT$wh"
 echo -e "$yy 8$y. CEK SEMUA SERVICE VPN$wh"
-echo -e "$yy 9$y. Settings$wh"
-echo -e "$yy 10$y.Update Menu$wh"
+echo -e "$yy 9$y. Update Menu$wh"
+echo -e "$yy 10$y.Setting$wh"
 echo -e "$yy 11$y.Exit$wh"
 echo -e "$y-------------------------------------------------$wh"
 read -p "Select From Options [ 1 - 11 ] : " menu
@@ -63,7 +63,7 @@ updatemenu
 ;;
 10)
 clear
-settmenu
+setmenu
 ;;
 11)
 clear
