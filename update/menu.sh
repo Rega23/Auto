@@ -59,11 +59,11 @@ running
 ;;
 9)
 clear
-setmenu
+updatemenu
 ;;
 10)
 clear
-updatemenu
+settmenu
 ;;
 11)
 clear
